@@ -1,81 +1,68 @@
 import { createStitches } from '@stitches/react'
+import { gray, purple } from '@radix-ui/colors'
 
-export const {
-  config,
-  createTheme,
-  css,
-  getCssText,
-  globalCss,
-  styled,
-  theme,
-} = createStitches({
+export const { config, createTheme, css, getCssText, globalCss, styled, theme } = createStitches({
+  prefix: 'amikotwo',
   theme: {
     colors: {
-      hiContrast: 'hsl(206,10%,5%)',
-      loContrast: 'white',
-
-      gray100: 'hsl(206,22%,99%)',
-      gray200: 'hsl(206,12%,97%)',
-      gray300: 'hsl(206,11%,92%)',
-      gray400: 'hsl(206,10%,84%)',
-      gray500: 'hsl(206,10%,76%)',
-      gray600: 'hsl(206,10%,44%)',
-
-      purple100: 'hsl(252,100%,99%)',
-      purple200: 'hsl(252,100%,98%)',
-      purple300: 'hsl(252,100%,94%)',
-      purple400: 'hsl(252,75%,84%)',
-      purple500: 'hsl(252,78%,60%)',
-      purple600: 'hsl(252,80%,53%)',
+      hiContrast: gray.gray12,
+      loContrast: gray.gray11,
+      ...gray,
+      ...purple
     },
     space: {
-      1: '5px',
-      2: '10px',
-      3: '15px',
-      4: '20px',
-      5: '25px',
-      6: '35px',
+      1: '4px',
+      2: '8px',
+      3: '12px',
+      4: '16px',
+      5: '20px',
+      6: '24px'
     },
     sizes: {
-      1: '5px',
-      2: '10px',
-      3: '15px',
-      4: '20px',
-      5: '25px',
-      6: '35px',
+      1: '4px',
+      2: '8px',
+      3: '12px',
+      4: '16px',
+      5: '20px',
+      6: '24px'
     },
     fontSizes: {
-      1: '12px',
-      2: '13px',
-      3: '15px',
-      4: '17px',
-      5: '19px',
-      6: '21px',
+      xs: '12px',
+      sm: '14px',
+      base: '16px',
+      lg: '18px',
+      xl: '20px',
+      '2xl': '24px'
     },
-    fonts: {
-      system: 'system-ui',
-    },
+    shadows: {
+      sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+      base: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+      md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+      lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+    }
   },
   utils: {
-    marginX: (value) => ({
+    marginX: value => ({
       marginLeft: value,
-      marginRight: value,
+      marginRight: value
     }),
-    marginY: (value) => ({
+    marginY: value => ({
       marginTop: value,
-      marginBottom: value,
+      marginBottom: value
     }),
-    paddingX: (value) => ({
+    paddingX: value => ({
       paddingLeft: value,
-      paddingRight: value,
+      paddingRight: value
     }),
-    paddingY: (value) => ({
+    paddingY: value => ({
       paddingTop: value,
-      paddingBottom: value,
-    }),
+      paddingBottom: value
+    })
   },
   media: {
-    bp1: '(min-width: 520px)',
-    bp2: '(min-width: 900px)',
-  },
+    sm: '(min-width: 640px)',
+    md: '(min-width: 768px)',
+    lg: '(min-width: 1024px)',
+    xl: '(min-width: 1280px)'
+  }
 })

@@ -1,37 +1,36 @@
 import Head from 'next/head'
-import { styled } from '../stitches.config'
-import StitchesLogo from '../components/StitchesLogo'
+
+import { styled } from 'stitches.config'
+import StitchesLogo from '~components/StitchesLogo'
 
 const Box = styled('div', {})
 
 const Text = styled('p', {
-  fontFamily: '$system',
-  color: '$hiContrast',
+  color: '$hiContrast'
 })
 
 const Link = styled('a', {
-  fontFamily: '$system',
   textDecoration: 'none',
-  color: '$purple600',
+  color: '$purple9'
 })
 
 const Container = styled('div', {
   marginX: 'auto',
-  paddingX: '$3',
+  paddingX: '$2',
 
   variants: {
     size: {
       1: {
-        maxWidth: '300px',
+        maxWidth: '300px'
       },
       2: {
-        maxWidth: '585px',
+        maxWidth: '585px'
       },
       3: {
-        maxWidth: '865px',
-      },
-    },
-  },
+        maxWidth: '865px'
+      }
+    }
+  }
 })
 
 export default function Home() {
@@ -40,12 +39,11 @@ export default function Home() {
       <Head>
         <title>Use Stitches with Next.js</title>
       </Head>
-      <Container size={{ '@initial': '1', '@bp1': '2' }}>
+      <Container size={{ '@initial': '1', '@sm': '2' }}>
         <StitchesLogo />
         <Text as="h1">Hello, from Stitches.</Text>
         <Text>
-          For full documentation, visit{' '}
-          <Link href="https://stitches.dev">stitches.dev</Link>.
+          For full documentation, visit <Link href="https://stitches.dev">stitches.dev</Link>.
         </Text>
       </Container>
     </Box>
