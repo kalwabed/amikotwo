@@ -1,5 +1,5 @@
 import { createStitches } from '@stitches/react'
-import { gray, purple } from '@radix-ui/colors'
+import { gray, purple, sky, yellow } from '@radix-ui/colors'
 
 export const { config, createTheme, css, getCssText, globalCss, styled, theme } = createStitches({
   prefix: 'amikotwo',
@@ -8,7 +8,9 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       hiContrast: gray.gray12,
       loContrast: gray.gray11,
       ...gray,
-      ...purple
+      ...purple,
+      ...sky,
+      ...yellow
     },
     space: {
       1: '4px',
@@ -16,7 +18,8 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       3: '12px',
       4: '16px',
       5: '20px',
-      6: '24px'
+      6: '24px',
+      8: '32px'
     },
     sizes: {
       1: '4px',
@@ -24,7 +27,8 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       3: '12px',
       4: '16px',
       5: '20px',
-      6: '24px'
+      6: '24px',
+      8: '32px'
     },
     fontSizes: {
       xs: '12px',

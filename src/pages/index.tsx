@@ -1,33 +1,24 @@
-import Head from 'next/head'
-
 import { styled } from 'stitches.config'
+import FormLogin from '~components/form-login'
+import Box from '~components/shared/box'
+import Text from '~components/shared/text'
 import StitchesLogo from '~components/StitchesLogo'
-
-const Box = styled('div', {})
-
-const Text = styled('p', {
-  color: '$hiContrast'
-})
-
-const Link = styled('a', {
-  textDecoration: 'none',
-  color: '$purple9'
-})
 
 const Container = styled('div', {
   marginX: 'auto',
-  paddingX: '$2',
+  paddingX: '$4',
+  width: '100%',
+  '@md': {
+    paddingX: '0'
+  },
 
   variants: {
     size: {
       1: {
-        maxWidth: '300px'
+        maxWidth: '384px'
       },
       2: {
-        maxWidth: '585px'
-      },
-      3: {
-        maxWidth: '865px'
+        maxWidth: '448px'
       }
     }
   }
@@ -35,17 +26,12 @@ const Container = styled('div', {
 
 export default function Home() {
   return (
-    <Box css={{ paddingY: '$6' }}>
-      <Head>
-        <title>Use Stitches with Next.js</title>
-      </Head>
-      <Container size={{ '@initial': '1', '@sm': '2' }}>
+    <Container size={{ '@initial': '1', '@md': '2' }} css={{ marginY: '50px' }}>
+      <Box css={{ display: 'flex', alignItems: 'center' }}>
         <StitchesLogo />
-        <Text as="h1">Hello, from Stitches.</Text>
-        <Text>
-          For full documentation, visit <Link href="https://stitches.dev">stitches.dev</Link>.
-        </Text>
-      </Container>
-    </Box>
+        <Text css={{ marginLeft: '$1' }}>AmikoTwo</Text>
+      </Box>
+      <FormLogin />
+    </Container>
   )
 }
