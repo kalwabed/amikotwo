@@ -1,7 +1,8 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 
 import { styled } from 'stitches.config'
-import Box from './shared/box'
+import { Box } from './shared'
 
 const Input = styled('input', {
   position: 'relative',
@@ -69,19 +70,25 @@ const LoginButton = styled('button', {
 })
 
 const FormLogin = () => {
+  const { register, handleSubmit } = useForm()
+
+  const handleSubmitForm = async data => {
+    console.log(data)
+  }
+
   return (
-    <Box css={{ marginY: '$4' }}>
-      <div role="group">
+    <Box css={{ marginY: '$4' }} as="form" onSubmit={handleSubmit(handleSubmitForm)}>
+      <Box role="group">
         <InputLabel htmlFor="nim">NIM</InputLabel>
-        <Input id="nim" />
-      </div>
+        <Input id="nim" {...register('nim')} />
+      </Box>
 
       <Box role="group" css={{ marginTop: '$4' }}>
         <InputLabel htmlFor="password">Kata Sandi</InputLabel>
-        <Input id="password" type="password" />
+        <Input id="password" type="password" {...register('password')} />
       </Box>
 
-      <LoginButton isFullWidth css={{ marginTop: '$8' }}>
+      <LoginButton isFullWidth role="button" type="submit" css={{ marginTop: '$8' }}>
         Masuk
       </LoginButton>
     </Box>
