@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 
 import { styled } from 'stitches.config'
+import { signIn } from '~services/amikom'
 import { Box } from './shared'
 
 const Input = styled('input', {
@@ -65,15 +67,44 @@ const LoginButton = styled('button', {
       false: {
         width: 'auto'
       }
+    },
+    isLoading: {
+      true: {
+        backgroundColor: '$sky7',
+        '&:hover': {
+          backgroundColor: '$sky7'
+        },
+        '&:focus': {
+          backgroundColor: '$sky7'
+        }
+      },
+      false: {}
     }
   }
 })
 
+type LoginForm = {
+  nim: string
+  password: string
+}
+
 const FormLogin = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const { register, handleSubmit } = useForm()
 
-  const handleSubmitForm = async data => {
-    console.log(data)
+  const handleSubmitForm = async (data: LoginForm) => {
+    try {
+      setIsLoading(true)
+      toast.promise(signIn({ ...data }), {
+        loading: 'Loading...',
+        success: 'Success',
+        error: 'Error'
+      })
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -88,8 +119,15 @@ const FormLogin = () => {
         <Input id="password" type="password" {...register('password')} />
       </Box>
 
-      <LoginButton isFullWidth role="button" type="submit" css={{ marginTop: '$8' }}>
-        Masuk
+      <LoginButton
+        isFullWidth
+        disabled={isLoading}
+        isLoading={isLoading}
+        role="button"
+        type="submit"
+        css={{ marginTop: '$8' }}
+      >
+        {isLoading ? '...' : 'Masuk'}
       </LoginButton>
     </Box>
   )
