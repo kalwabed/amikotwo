@@ -6,6 +6,8 @@ import LayoutRoot from '~components/layout/layout-root'
 import globalStyles from '~global-styles'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  if (typeof window === 'undefined') return null
+
   globalStyles()
 
   return (

@@ -95,11 +95,13 @@ const FormLogin = () => {
   const handleSubmitForm = async (data: LoginForm) => {
     try {
       setIsLoading(true)
-      toast.promise(signIn({ ...data }), {
-        loading: 'Loading...',
-        success: 'Success',
-        error: 'Error'
+      const res = await toast.promise(signIn({ ...data }), {
+        loading: 'Memproses...',
+        success: 'Berhasil masuk!',
+        error: 'Error lur...'
       })
+
+      console.log(res)
     } catch (error) {
       console.log(error)
     } finally {

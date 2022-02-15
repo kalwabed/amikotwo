@@ -1,7 +1,8 @@
+import WithAuthWrapper from '~components/hoc/with-auth'
 import { Box, Container, Text } from '~components/shared'
 import StitchesLogo from '~components/StitchesLogo'
 
-export default function HomePage() {
+function HomePage() {
   return (
     <Container css={{ marginY: '50px' }}>
       <Box css={{ display: 'flex', alignItems: 'center' }}>
@@ -11,3 +12,5 @@ export default function HomePage() {
     </Container>
   )
 }
+
+export default WithAuthWrapper(HomePage)
