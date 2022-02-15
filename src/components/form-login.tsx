@@ -3,87 +3,9 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
-import { styled } from 'stitches.config'
 import { signIn } from '~services/amikom'
 import { createUserSession } from '~utils/auth-cookie'
-import { Box } from './shared'
-
-const Input = styled('input', {
-  position: 'relative',
-  height: '2.5rem',
-  width: '100%',
-  padding: '$2',
-  border: '2px solid $gray7',
-  borderRadius: '4px',
-  transition: 'border-color 0.2s ease-in-out',
-  outlineOffset: '2px',
-  '&:hover': {
-    borderColor: '$gray8'
-  },
-  '&:focus': {
-    borderColor: '$purple9',
-    outline: 'none'
-  }
-})
-
-const InputLabel = styled('label', {
-  display: 'block',
-  marginBottom: '$2',
-  color: '$hiContrast',
-  fontWeight: '600'
-})
-
-const LoginButton = styled('button', {
-  display: 'inline-flex',
-  appearance: 'none',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '2.5rem',
-  width: 'auto',
-  padding: '$2',
-  userSelect: 'none',
-  lineHeight: '1.2',
-  outline: 'transparent solid 2px',
-  outlineOffset: '2px',
-  borderRadius: '5px',
-  minWidth: '2.5rem',
-  verticalAlign: 'middle',
-  color: '$hiContrast',
-  backgroundColor: 'White',
-  border: 'Black 3px solid',
-  fontSize: '$base',
-  fontWeight: '600',
-  cursor: 'pointer',
-  transition: 'background-color 0.2s ease-out',
-  '&:hover': {
-    backgroundColor: '$sky4'
-  },
-  '&:focus': {
-    backgroundColor: '$sky5'
-  },
-  variants: {
-    isFullWidth: {
-      true: {
-        width: '100%'
-      },
-      false: {
-        width: 'auto'
-      }
-    },
-    isLoading: {
-      true: {
-        backgroundColor: '$sky7',
-        '&:hover': {
-          backgroundColor: '$sky7'
-        },
-        '&:focus': {
-          backgroundColor: '$sky7'
-        }
-      },
-      false: {}
-    }
-  }
-})
+import { Box, Button, Input, InputLabel } from './shared'
 
 type LoginForm = {
   nim: string
@@ -96,31 +18,27 @@ const FormLogin = () => {
   const router = useRouter()
 
   const handleSubmitForm = async (data: LoginForm) => {
-    try {
-      setIsLoading(true)
-      toast.loading('Memproses...', {
-        id: 'loading'
+    setIsLoading(true)
+    toast.loading('Memproses...', {
+      id: 'loading'
+    })
+    const res = await signIn(data)
+
+    toast.remove('loading')
+    if (res.success) {
+      toast.success('Berhasil masuk', {
+        duration: 2000
       })
-      const res = await signIn(data)
 
-      toast.remove('loading')
-      if (res.success) {
-        toast.success('Berhasil masuk', {
-          duration: 2000
-        })
-
-        createUserSession(res.access_token)
-        router.push('/')
-      } else {
-        toast.error(res.message, {
-          duration: 2000
-        })
-      }
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setIsLoading(false)
+      createUserSession({ accessToken: res.access_token, nim: data.nim })
+      router.push('/')
+    } else {
+      toast.error(res.message, {
+        duration: 2000
+      })
     }
+
+    setIsLoading(false)
   }
 
   return (
@@ -135,7 +53,7 @@ const FormLogin = () => {
         <Input id="password" type="password" {...register('password')} />
       </Box>
 
-      <LoginButton
+      <Button
         isFullWidth
         disabled={isLoading}
         isLoading={isLoading}
@@ -144,7 +62,7 @@ const FormLogin = () => {
         css={{ marginTop: '$8' }}
       >
         {isLoading ? '...' : 'Masuk'}
-      </LoginButton>
+      </Button>
     </Box>
   )
 }

@@ -1,3 +1,5 @@
+import { parseUserSession } from '~utils/auth-cookie'
+
 type ApiResponse = {
   success: boolean
   message: string
@@ -15,6 +17,20 @@ export async function signIn({ nim, password }: { nim: string; password: string 
     const res = await fetch(`${API_URL}/auth?nim=${nim}&password=${password}`)
 
     return (await res.json()) as ApiResponse
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export async function presence(presenceCode: string) {
+  if (!presenceCode) throw new Error('Presence Code harus diisi')
+
+  const { accessToken, nim } = parseUserSession()
+
+  try {
+    const rest = await fetch(`${API_URL}/absen/v2?nim=${nim}&kode=${presenceCode}&token=${accessToken}`)
+
+    return (await rest.json()) as ApiResponse
   } catch (error) {
     console.error(error)
   }
