@@ -1,9 +1,11 @@
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
 import { styled } from 'stitches.config'
 import { signIn } from '~services/amikom'
+import { createUserSession } from '~utils/auth-cookie'
 import { Box } from './shared'
 
 const Input = styled('input', {
@@ -91,17 +93,29 @@ type LoginForm = {
 const FormLogin = () => {
   const [isLoading, setIsLoading] = useState(false)
   const { register, handleSubmit } = useForm()
+  const router = useRouter()
 
   const handleSubmitForm = async (data: LoginForm) => {
     try {
       setIsLoading(true)
-      const res = await toast.promise(signIn({ ...data }), {
-        loading: 'Memproses...',
-        success: 'Berhasil masuk!',
-        error: 'Error lur...'
+      toast.loading('Memproses...', {
+        id: 'loading'
       })
+      const res = await signIn(data)
 
-      console.log(res)
+      toast.remove('loading')
+      if (res.success) {
+        toast.success('Berhasil masuk', {
+          duration: 2000
+        })
+
+        createUserSession(res.access_token)
+        router.push('/')
+      } else {
+        toast.error(res.message, {
+          duration: 2000
+        })
+      }
     } catch (error) {
       console.log(error)
     } finally {

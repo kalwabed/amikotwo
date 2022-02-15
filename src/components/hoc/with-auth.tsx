@@ -1,13 +1,15 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
-const WithAuthWrapper = Component =>
+import { checkUserSession } from '~utils/auth-cookie'
+
+export const withAuthorizedUser = Component =>
   function WithAuth(props) {
     const [isValid, setIsValid] = useState(false)
     const router = useRouter()
 
     useEffect(() => {
-      const userSession = sessionStorage.getItem('userSession')
+      const userSession = checkUserSession()
 
       if (userSession) {
         setIsValid(true)
@@ -21,4 +23,22 @@ const WithAuthWrapper = Component =>
     return <p>loading...</p>
   }
 
-export default WithAuthWrapper
+export const withUnAuthorizedUser = Component =>
+  function WithUnAuth(props) {
+    const [isValid, setIsValid] = useState(false)
+    const router = useRouter()
+
+    useEffect(() => {
+      const userSession = checkUserSession()
+
+      if (userSession) {
+        router.push('/')
+      } else {
+        setIsValid(true)
+      }
+    }, [])
+
+    if (isValid) return <Component {...props} />
+
+    return <p>loading...</p>
+  }

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import FormLogin from '~components/form-login'
+import { withUnAuthorizedUser } from '~components/hoc/with-auth'
 import { Container } from '~components/shared'
 
 const Loginpage = () => {
@@ -12,4 +13,4 @@ const Loginpage = () => {
   )
 }
 
-export default Loginpage
+export default withUnAuthorizedUser(Loginpage)
