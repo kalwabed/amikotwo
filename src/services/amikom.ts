@@ -14,7 +14,7 @@ export async function signIn({ nim, password }: { nim: string; password: string 
   }
 
   try {
-    const res = await fetch(`${API_URL}/auth?nim=${nim}&password=${password}`)
+    const res = await fetch(`${API_URL}/auth/absen?nim=${nim}&password=${password}`)
 
     return (await res.json()) as ApiResponse
   } catch (error) {

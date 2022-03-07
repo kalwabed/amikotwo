@@ -10,7 +10,7 @@ type UserSessionProps = {
 export const createUserSession = (data: UserSessionProps): void => {
   const { accessToken, nim } = data
   const encryptedNim = window.btoa(nim)
-  const sessionPayload = `${accessToken}.${encryptedNim}`
+  const sessionPayload = `${accessToken}:${encryptedNim}`
 
   cookie.set(USER_AUTH_KEY, sessionPayload, {
     expires: 30, // 30 days
@@ -33,7 +33,7 @@ export const parseUserSession = (): { nim: string; accessToken: string } => {
   if (!checkUserSession()) throw new Error('User not logged in')
 
   const cookieValue = cookie.get(USER_AUTH_KEY)
-  const [accessToken, encryptedNim] = cookieValue.split('.')
+  const [accessToken, encryptedNim] = cookieValue.split(':')
 
   return { nim: window.atob(encryptedNim), accessToken }
 }
