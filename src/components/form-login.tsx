@@ -45,12 +45,12 @@ const FormLogin = () => {
     <Box css={{ marginY: '$4' }} as="form" onSubmit={handleSubmit(handleSubmitForm)}>
       <Box role="group">
         <InputLabel htmlFor="nim">NIM</InputLabel>
-        <Input id="nim" {...register('nim')} />
+        <Input id="nim" {...register('nim', { required: true })} />
       </Box>
 
       <Box role="group" css={{ marginTop: '$4' }}>
         <InputLabel htmlFor="password">Kata Sandi</InputLabel>
-        <Input id="password" type="password" {...register('password')} />
+        <Input id="password" type="password" {...register('password', { required: true })} />
       </Box>
 
       <Button
