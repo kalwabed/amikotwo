@@ -4,11 +4,11 @@ const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   mx: 'auto',
-  paddingX: '$4',
+  px: '$4',
   width: '100%',
   maxWidth: '384px',
   '@md': {
-    paddingX: '0',
+    px: '0',
     maxWidth: '448px'
   },
 

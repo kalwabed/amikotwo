@@ -1,9 +1,11 @@
 import { withAuthorizedUser } from '~components/hoc/with-auth'
 import Presence from '~components/presence'
-import { Box, Button, Container, Flex, Text } from '~components/ui'
+import { Box, Button, Flex, Text } from '~components/ui'
 import Logo from '~components/shared/logo'
 import { removeUserSession } from '~utils/auth-cookie'
 import { useRouter } from 'next/router'
+import Container from '~components/shared/container'
+import Card from '~components/shared/card'
 
 function HomePage() {
   const router = useRouter()
@@ -15,18 +17,7 @@ function HomePage() {
 
   return (
     <Container css={{ my: 'auto' }}>
-      <Flex
-        css={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-          padding: '$8',
-          borderRadius: '4px',
-          backgroundColor: '$gray2',
-          border: '1px solid $gray6',
-          boxShadow: '$base'
-        }}
-      >
+      <Card>
         <Logo />
         <Flex
           css={{
@@ -53,7 +44,7 @@ function HomePage() {
         <Box css={{ marginTop: '10px', width: '100%' }}>
           <Presence />
         </Box>
-      </Flex>
+      </Card>
     </Container>
   )
 }
