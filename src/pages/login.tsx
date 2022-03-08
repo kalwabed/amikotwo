@@ -2,7 +2,7 @@ import React from 'react'
 
 import FormLogin from '~components/form-login'
 import { withUnAuthorizedUser } from '~components/hoc/with-auth'
-import { Container } from '~components/shared'
+import { Container } from '~components/ui'
 
 const Loginpage = () => {
   return (

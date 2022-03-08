@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
+import { Text } from '~components/ui'
 
 import { checkUserSession } from '~utils/auth-cookie'
 
@@ -20,7 +21,7 @@ export const withAuthorizedUser = Component =>
 
     if (isValid) return <Component {...props} />
 
-    return <p>loading...</p>
+    return <Text css={{ textAlign: 'center' }}>Loading...</Text>
   }
 
 export const withUnAuthorizedUser = Component =>
@@ -40,5 +41,5 @@ export const withUnAuthorizedUser = Component =>
 
     if (isValid) return <Component {...props} />
 
-    return <p>loading...</p>
+    return <Text css={{ textAlign: 'center' }}>Loading...</Text>
   }

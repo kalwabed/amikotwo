@@ -1,7 +1,9 @@
 import { styled } from 'stitches.config'
 
 const Container = styled('div', {
-  marginX: 'auto',
+  display: 'flex',
+  flexDirection: 'column',
+  mx: 'auto',
   paddingX: '$4',
   width: '100%',
   maxWidth: '384px',

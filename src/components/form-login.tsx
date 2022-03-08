@@ -5,7 +5,7 @@ import toast from 'react-hot-toast'
 
 import { signIn } from '~services/amikom'
 import { createUserSession } from '~utils/auth-cookie'
-import { Box, Button, Input, InputLabel } from './shared'
+import { Box, Button, Input, InputLabel } from './ui'
 
 type LoginForm = {
   nim: string
@@ -42,7 +42,7 @@ const FormLogin = () => {
   }
 
   return (
-    <Box css={{ marginY: '$4' }} as="form" onSubmit={handleSubmit(handleSubmitForm)}>
+    <Box css={{ my: '$4' }} as="form" onSubmit={handleSubmit(handleSubmitForm)}>
       <Box role="group">
         <InputLabel htmlFor="nim">NIM</InputLabel>
         <Input id="nim" {...register('nim', { required: true })} />

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Box } from '~components/shared'
+import { Flex } from '~components/ui'
 
 const LayoutRoot: React.FC = ({ children }) => {
-  return <Box css={{ display: 'flex', minHeight: '100%', width: '100%', flexDirection: 'column' }}>{children}</Box>
+  return <Flex css={{ minHeight: '100%', width: '100%', flexDirection: 'column', flex: '1 1 auto' }}>{children}</Flex>
 }
 
 export default LayoutRoot

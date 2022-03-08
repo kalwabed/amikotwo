@@ -8,12 +8,18 @@ const globalStyles = globalCss({
     lineHeight: '1.15',
     '-webkit-text-size-adjust': '100%',
     '-moz-tab-size': 4,
-    tabSize: 4
+    tabSize: 4,
+    height: '100%'
   },
   body: {
     margin: 0,
+    height: '100%',
     fontFamily:
       'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+  },
+  '#__next': {
+    height: '100%',
+    isolation: 'isolate'
   },
   hr: {
     height: 0,

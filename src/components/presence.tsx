@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
 import { presence } from '~services/amikom'
-import { Box, Button, Input, InputLabel } from './shared'
+import { Box, Button, Input, InputLabel } from './ui'
 
 const Presence = () => {
   const { register, handleSubmit } = useForm()
@@ -31,13 +31,14 @@ const Presence = () => {
   }
 
   return (
-    <form>
+    <Box as="form" css={{ width: '100%' }}>
       <Box role="group" css={{ marginTop: '$4' }}>
         <InputLabel htmlFor="presenceCode">Masukkan kode presensi</InputLabel>
-        <Input autoFocus id="presenceCode" {...register('presenceCode')} />
+        <Input autoFocus id="presenceCode" {...register('presenceCode', { required: true })} />
       </Box>
 
       <Button
+        isFullWidth
         css={{ marginTop: '12px' }}
         role="button"
         type="submit"
@@ -47,7 +48,7 @@ const Presence = () => {
       >
         {isLoading ? '...' : 'Presensi'}
       </Button>
-    </form>
+    </Box>
   )
 }
 
