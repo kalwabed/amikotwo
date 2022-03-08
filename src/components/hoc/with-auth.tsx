@@ -17,7 +17,7 @@ export const withAuthorizedUser = Component =>
       } else {
         router.push('/login')
       }
-    }, [])
+    }, [router])
 
     if (isValid) return <Component {...props} />
 
@@ -37,7 +37,7 @@ export const withUnAuthorizedUser = Component =>
       } else {
         setIsValid(true)
       }
-    }, [])
+    }, [router])
 
     if (isValid) return <Component {...props} />
 
