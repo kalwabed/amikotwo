@@ -13,7 +13,7 @@ export const createUserSession = (data: UserSessionProps): void => {
   const sessionPayload = `${accessToken}:${encryptedNim}`
 
   cookie.set(USER_AUTH_KEY, sessionPayload, {
-    expires: 30, // 30 days
+    expires: new Date().getTime() + 60 * 60 * 1000, // 60 minutes
     secure: true,
     sameSite: 'strict'
   })
