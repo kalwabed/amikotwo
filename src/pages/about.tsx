@@ -5,7 +5,7 @@ import { Box, Flex, Text } from '~components/ui'
 
 const AboutPage = () => {
   return (
-    <Container css={{ lineHeight: '$normal' }}>
+    <Container css={{ lineHeight: '$normal', mt: '20px' }}>
       <Flex css={{ flexDirection: 'column' }}>
         <Text as="h1" css={{ mb: '.3rem' }}>
           About / Tentang
