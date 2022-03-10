@@ -13,7 +13,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Home page</title>
+        <title>AmikoTwo</title>
       </Head>
       <LayoutRoot>
         <Toaster />

@@ -13,6 +13,8 @@ const Card: React.FC<{ css?: Stitches.CSS }> = ({ children, css }) => {
         backgroundColor: '$gray2',
         border: '1px solid $gray6',
         boxShadow: '$md',
+        backdropFilter: 'blur(10px)',
+        background: 'hsla(0, 0%, 97.25490196078431%, 0.26)',
         ...css
       }}
     >

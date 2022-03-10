@@ -172,9 +172,6 @@ export const { getCssText, css, globalCss, styled, theme, keyframes } = createSt
       marginTop: value,
       marginBottom: value
     }),
-    filter: value => ({
-      backdropFilter: value
-    }),
     bg: value => ({
       background: value
     }),

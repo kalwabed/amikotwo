@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import { withAuthorizedUser } from '~components/hoc/with-auth'
 import Presence from '~components/presence'
 import { Box, Button, Flex, Text } from '~components/ui'
@@ -17,6 +19,9 @@ function HomePage() {
 
   return (
     <Container css={{ my: 'auto' }}>
+      <Head>
+        <title>Home - AmikoTwo</title>
+      </Head>
       <Card>
         <Logo />
         <Flex

@@ -13,7 +13,7 @@ export const Input = styled('input', {
     borderColor: '$gray8'
   },
   '&:focus': {
-    borderColor: '$purple9',
+    borderColor: '$sky7',
     outline: 'none'
   }
 })
