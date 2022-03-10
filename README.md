@@ -1,27 +1,36 @@
-# Stitches Example
+# AmikoTwo
 
-This example shows how to use the [Stitches CSS-in-JS Library](https://github.com/modulz/stitches).
+Bot presensi Amikom but with web POV.
 
-## Preview
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Getting Started
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-stitches)
+To get started running the project locally, please follow the steps below.
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-stitches&project-name=with-stitches&repository-name=with-stitches)
-
-## How to use
-
-Execute [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+First, clone the repository.
 
 ```bash
-npx create-next-app --example with-stitches with-stitches-app
-# or
-yarn create next-app --example with-stitches with-stitches-app
+git clone https://github.com/kalwabed/amikotwo.git
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Then, install dependencies and fetch data to your local machine. **Note that we use Yarn, not npm.**
+
+```bash
+cd amikotwo
+yarn install
+```
+
+Finally, run the development server.
+
+```bash
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
