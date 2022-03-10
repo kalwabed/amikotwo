@@ -132,6 +132,7 @@ const Button = styled('button', {
           color: '$gray11'
         },
         '&:focus': {
+          border: '1px solid $gray7',
           backgroundColor: 'transparent'
         }
       }
@@ -147,6 +148,7 @@ const Button = styled('button', {
           color: '$sky11'
         },
         '&:focus': {
+          border: '1px solid $sky7',
           backgroundColor: 'transparent'
         }
       }

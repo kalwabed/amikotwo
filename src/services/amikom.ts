@@ -4,6 +4,7 @@ type ApiResponse = {
   success: boolean
   message: string
   access_token?: string
+  status?: number
 }
 
 const API_URL = 'https://apiamikom.vercel.app'
@@ -28,9 +29,11 @@ export async function presence(presenceCode: string) {
   const { accessToken, nim } = parseUserSession()
 
   try {
-    const rest = await fetch(`${API_URL}/absen/v2?nim=${nim}&kode=${presenceCode}&token=${accessToken}`)
+    const res = await fetch(`${API_URL}/absen/v2?nim=${nim}&kode=${presenceCode}&token=${accessToken}`)
 
-    return (await rest.json()) as ApiResponse
+    console.info('status', res.status)
+
+    return { ...(await res.json()), status: res.status } as ApiResponse
   } catch (error) {
     console.error(error)
   }

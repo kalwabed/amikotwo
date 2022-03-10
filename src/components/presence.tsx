@@ -21,6 +21,11 @@ const Presence = () => {
       toast.success('Berhasil presensi', {
         duration: 2000
       })
+    } else if (response.status === 401) {
+      // user session expired
+      toast.error('Sesi berakhir 😢 Silakan login kembali', {
+        duration: 2000
+      })
     } else {
       toast.error(response.message, {
         duration: 2000
@@ -34,7 +39,7 @@ const Presence = () => {
     <Box as="form" css={{ width: '100%' }}>
       <Box role="group" css={{ marginTop: '$4' }}>
         <InputLabel htmlFor="presenceCode">Masukkan kode presensi</InputLabel>
-        <Input autoFocus id="presenceCode" {...register('presenceCode', { required: true })} />
+        <Input autoFocus maxLength={5} id="presenceCode" {...register('presenceCode', { required: true })} />
       </Box>
 
       <Button
