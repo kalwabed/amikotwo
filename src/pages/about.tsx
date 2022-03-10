@@ -11,8 +11,8 @@ const AboutPage = () => {
           About / Tentang
         </Text>
         <Text>
-          Website ini dibuat untuk memberikan opsi penggunaan website kepada para pengguna Bot Absen Amikom @binsarjr,
-          juga sebagai backup sewaktu-waktu Bot mengalami trouble.
+          Website ini dibuat untuk memberikan opsi penggunaan website kepada para pengguna Bot Presensi Amikom by
+          @binsarjr, juga sebagai backup jika sewaktu-waktu Bot mengalami trouble.
         </Text>
         <Box
           as="span"
