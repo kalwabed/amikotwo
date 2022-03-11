@@ -5,12 +5,13 @@ import { withAuthorizedUser } from '~components/hoc/with-auth'
 import Presence from '~components/presence'
 import { Box, Button, Flex, Text } from '~components/ui'
 import Logo from '~components/shared/logo'
-import { removeUserSession } from '~utils/auth-cookie'
+import { parseUserSession, removeUserSession } from '~utils/auth-cookie'
 import Container from '~components/shared/container'
 import Card from '~components/shared/card'
 
 function HomePage() {
   const router = useRouter()
+  const { nim } = parseUserSession()
 
   const handleUserLogout = () => {
     removeUserSession()
@@ -31,7 +32,7 @@ function HomePage() {
           }}
         >
           <Text css={{ fontSize: '$sm' }}>
-            Hai, <b>21.11.4078</b> 👋
+            Hai, <b>{nim}</b> 👋
           </Text>
 
           <Button
