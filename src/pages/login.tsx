@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import React from 'react'
 
 import FormLogin from '~components/form-login'
@@ -11,9 +11,7 @@ import { Flex, Text } from '~components/ui'
 const Loginpage = () => {
   return (
     <Container css={{ my: 'auto' }}>
-      <Head>
-        <title>Login - AmikoTwo</title>
-      </Head>
+      <NextSeo title="Login - AmikoTwo" />
       <Flex css={{ flexDirection: 'column', alignItems: 'center' }}>
         <LogoImage height={55} width={55} />
         <Text as="h1" css={{ fontWeight: '$medium', fontSize: '$2xl' }}>

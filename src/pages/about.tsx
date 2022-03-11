@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import React from 'react'
 
 import Container from '~components/shared/container'
@@ -8,9 +8,7 @@ import { Box, Flex, Text } from '~components/ui'
 const AboutPage = () => {
   return (
     <Container css={{ lineHeight: '$normal', mt: '20px' }}>
-      <Head>
-        <title>About - AmikoTwo</title>
-      </Head>
+      <NextSeo title="About - AmikoTwo" />
 
       <Flex css={{ flexDirection: 'column' }}>
         <Text as="h1" css={{ mb: '.3rem' }}>

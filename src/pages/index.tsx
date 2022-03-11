@@ -1,11 +1,11 @@
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 
 import { withAuthorizedUser } from '~components/hoc/with-auth'
 import Presence from '~components/presence'
 import { Box, Button, Flex, Text } from '~components/ui'
 import Logo from '~components/shared/logo'
 import { removeUserSession } from '~utils/auth-cookie'
-import { useRouter } from 'next/router'
 import Container from '~components/shared/container'
 import Card from '~components/shared/card'
 
@@ -19,9 +19,7 @@ function HomePage() {
 
   return (
     <Container css={{ my: 'auto' }}>
-      <Head>
-        <title>Home - AmikoTwo</title>
-      </Head>
+      <NextSeo title="Home - AmikoTwo" />
       <Card>
         <Logo />
         <Flex
