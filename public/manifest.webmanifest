@@ -1,0 +1,16 @@
+{
+  "name": "AmikoTwo",
+  "short_name": "Amikotwo",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "id": "amikotwo",
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "description": "Website ini dibuat untuk memberikan opsi penggunaan website kepada para pengguna Bot Presensi Amikom by @binsarjr, juga sebagai backup jika sewaktu-waktu Bot mengalami trouble.",
+  "screenshots": [{ "src": "/assets/cover.png", "type": "image/png" }],
+  "icons": [
+    { "src": "/assets/192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/assets/512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}
