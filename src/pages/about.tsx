@@ -2,6 +2,7 @@ import { NextSeo } from 'next-seo'
 import React from 'react'
 
 import Container from '~components/shared/container'
+import Divider from '~components/shared/divider'
 import TextLink from '~components/shared/text-link'
 import { Box, Flex, Text } from '~components/ui'
 
@@ -18,11 +19,7 @@ const AboutPage = () => {
           Website ini dibuat untuk memberikan opsi penggunaan website kepada para pengguna Bot Presensi Amikom by
           @binsarjr, juga sebagai backup jika sewaktu-waktu Bot mengalami trouble.
         </Text>
-        <Box
-          as="span"
-          aria-hidden="true"
-          css={{ width: '25%', padding: '1px', my: '10px', bgColor: '$gray6', mx: 'auto' }}
-        />
+        <Divider />
         <Text>
           Dikembangkan oleh{' '}
           <TextLink isExternal href="https://kalwabed.xyz">

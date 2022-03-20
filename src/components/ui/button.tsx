@@ -100,6 +100,19 @@ const Button = styled('button', {
           backgroundColor: '$gray6',
           borderColor: '$gray7'
         }
+      },
+      yellow: {
+        backgroundColor: '$yellow4',
+        borderColor: '$yellow7',
+        color: '$yellow12',
+        '&:hover': {
+          backgroundColor: '$yellow5',
+          borderColor: '$yellow8'
+        },
+        '&:focus': {
+          backgroundColor: '$yellow6',
+          borderColor: '$yellow7'
+        }
       }
     },
     size: {
