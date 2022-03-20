@@ -72,8 +72,12 @@ const Presence = () => {
       </Button>
 
       <Text css={{ marginTop: '$8' }}>Riwayat</Text>
+      <Box css={{ bgColor: '$gray2', padding: '$4', textAlign: 'center', boxShadow: '$sm' }}>
+        <Text css={{ margin: 0 }}>Kosong</Text>
+      </Box>
+
       <Grid css={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: '$4', my: '8px' }}>
-        {presenceHistory.map((code, i) => (
+        {presenceHistory?.map((code, i) => (
           <Button
             key={code.concat(i.toString())}
             onClick={e => {
