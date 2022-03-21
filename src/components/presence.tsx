@@ -24,7 +24,9 @@ const Presence = () => {
 
     //Handle user presence code and save it to local storage
     const prevCodes = JSON.parse(localStorage.getItem('presenceCode')) as string[]
-    localStorage.setItem('presenceCode', JSON.stringify([presenceCode, ...(prevCodes.slice(0, 2) || [])]))
+    const newCodes = [presenceCode, ...(prevCodes?.slice(0, 2) || [])]
+    setPresenceHistory(newCodes)
+    localStorage.setItem('presenceCode', JSON.stringify(newCodes))
 
     const response = await presence(presenceCode)
     toast.remove('loading')
@@ -72,9 +74,11 @@ const Presence = () => {
       </Button>
 
       <Text css={{ marginTop: '$8' }}>Riwayat</Text>
-      <Box css={{ bgColor: '$gray2', padding: '$4', textAlign: 'center', boxShadow: '$sm' }}>
-        <Text css={{ margin: 0 }}>Kosong</Text>
-      </Box>
+      {presenceHistory.length === 0 && (
+        <Box css={{ bgColor: '$gray2', padding: '$4', textAlign: 'center', boxShadow: '$sm' }}>
+          <Text css={{ margin: 0 }}>Kosong</Text>
+        </Box>
+      )}
 
       <Grid css={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: '$4', my: '8px' }}>
         {presenceHistory?.map((code, i) => (
