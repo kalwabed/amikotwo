@@ -26,7 +26,7 @@ const Logo = () => {
 export const LogoImage = ({ height = 35, width = 35 }: { height?: number; width?: number }) => {
   return (
     <>
-      <Image src={logo} height={height} width={width} alt="AmikoTwo logo" className="logo-rounded" />
+      <Image priority src={logo} height={height} width={width} alt="AmikoTwo logo" className="logo-rounded" />
 
       <style jsx global>
         {`

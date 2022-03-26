@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
 import { presence } from '~services/amikom'
-import { Box, Button, Flex, Grid, Input, InputLabel, Text } from './ui'
+import { Box, Button, Grid, Input, InputLabel, Text } from './ui'
 
 const Presence = () => {
   const { register, handleSubmit } = useForm()
@@ -33,16 +33,16 @@ const Presence = () => {
 
     if (response.success) {
       toast.success('Berhasil presensi', {
-        duration: 2000
+        duration: 3000
       })
     } else if (response.status === 500) {
       // user session expired
       toast.error('Sesi berakhir 😢 Silakan login kembali', {
-        duration: 2000
+        duration: 3000
       })
     } else {
       toast.error(response.message, {
-        duration: 2000
+        duration: 3000
       })
     }
 
@@ -58,7 +58,13 @@ const Presence = () => {
     <Box as="form" css={{ width: '100%' }}>
       <Box role="group" css={{ marginTop: '$4' }}>
         <InputLabel htmlFor="presenceCode">Masukkan kode presensi</InputLabel>
-        <Input autoFocus maxLength={5} id="presenceCode" {...register('presenceCode', { required: true })} />
+        <Input
+          autoFocus
+          maxLength={5}
+          id="presenceCode"
+          css={{ fontVariantNumeric: 'slashed-zero' }}
+          {...register('presenceCode', { required: true })}
+        />
       </Box>
 
       <Button
@@ -92,7 +98,8 @@ const Presence = () => {
             css={{
               flexDirection: 'column',
               marginBottom: '12px',
-              padding: '8px 10px'
+              padding: '8px 10px',
+              fontVariantNumeric: 'slashed-zero'
             }}
           >
             {code}

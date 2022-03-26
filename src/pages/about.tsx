@@ -22,7 +22,7 @@ const AboutPage = () => {
         <Divider />
         <Text>
           Dikembangkan oleh{' '}
-          <TextLink isExternal href="https://kalwabed.xyz">
+          <TextLink isExternal href="https://www.instagram.com/kalwabed">
             Kalwabed Rizki
           </TextLink>{' '}
           menggunakan Next.js dan Stitches.

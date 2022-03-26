@@ -45,7 +45,7 @@ const FormLogin = () => {
     <Box css={{ my: '$4' }} as="form" onSubmit={handleSubmit(handleSubmitForm)}>
       <Box role="group">
         <InputLabel htmlFor="nim">NIM</InputLabel>
-        <Input id="nim" {...register('nim', { required: true })} />
+        <Input id="nim" css={{ fontVariantNumeric: 'tabular-nums' }} {...register('nim', { required: true })} />
       </Box>
 
       <Box role="group" css={{ marginTop: '$4' }}>
