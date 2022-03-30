@@ -60,6 +60,7 @@ const Presence = () => {
         <InputLabel htmlFor="presenceCode">Masukkan kode presensi</InputLabel>
         <Input
           autoFocus
+          disabled
           maxLength={5}
           id="presenceCode"
           css={{ fontVariantNumeric: 'slashed-zero' }}

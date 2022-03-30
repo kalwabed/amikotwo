@@ -45,12 +45,17 @@ const FormLogin = () => {
     <Box css={{ my: '$4' }} as="form" onSubmit={handleSubmit(handleSubmitForm)}>
       <Box role="group">
         <InputLabel htmlFor="nim">NIM</InputLabel>
-        <Input id="nim" css={{ fontVariantNumeric: 'tabular-nums' }} {...register('nim', { required: true })} />
+        <Input
+          id="nim"
+          disabled
+          css={{ fontVariantNumeric: 'tabular-nums' }}
+          {...register('nim', { required: true })}
+        />
       </Box>
 
       <Box role="group" css={{ marginTop: '$4' }}>
         <InputLabel htmlFor="password">Kata Sandi</InputLabel>
-        <Input id="password" type="password" {...register('password', { required: true })} />
+        <Input id="password" disabled type="password" {...register('password', { required: true })} />
       </Box>
 
       <Button

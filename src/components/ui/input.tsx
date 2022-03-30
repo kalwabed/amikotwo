@@ -15,6 +15,10 @@ export const Input = styled('input', {
   '&:focus': {
     borderColor: '$sky7',
     outline: 'none'
+  },
+  '&:disabled': {
+    cursor: 'not-allowed',
+    opacity: '0.5'
   }
 })
 
